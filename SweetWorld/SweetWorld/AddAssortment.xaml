@@ -8,19 +8,34 @@
                 <StackLayout >
                     <StackLayout>
                         <Label Text="Название"  TextColor="black"></Label>
-                        <Entry x:Name="name" />
+                        <Entry x:Name="name" BackgroundColor="Wheat"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Описание"  TextColor="black"></Label>
                         <Editor x:Name="description"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Масса нетто"  TextColor="black"></Label>
-                        <Entry x:Name="pickerMass"></Entry>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="Масса нетто"  TextColor="black"></Label>
+                                <Entry x:Name="pickerMass" BackgroundColor="Wheat" HeightRequest="50"></Entry>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Единица измерения"  TextColor="black"></Label>
+                                <Picker x:Name="pickerUnit" HeightRequest="50" WidthRequest="60">
+                                    <Picker.Items>
+                                        <x:String>Шт</x:String>
+                                        <x:String>Гр</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Цена"  TextColor="black"></Label>
-                        <Entry x:Name="price"/>
+                        <Label Text="Цена"  TextColor="black" ></Label>
+                        <Entry x:Name="price" BackgroundColor="Wheat"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Тип ассортемента"  TextColor="black"></Label>

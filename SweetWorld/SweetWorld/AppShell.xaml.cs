@@ -1,4 +1,5 @@
-﻿using SweetWorld.ViewModels;
+﻿using SweetWorld.SQLite;
+using SweetWorld.ViewModels;
 using SweetWorld.Views;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,12 @@ namespace SweetWorld
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
-        public AppShell()
+        public User Iuser { get; set; }
+        public AppShell(User user)
         {
             InitializeComponent();
+            Iuser = user;
+            this.BindingContext = this;
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
@@ -18,6 +22,17 @@ namespace SweetWorld
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
+        }
+
+        private void exit_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new AuthorizationPage();
+        }
+
+        private async void Assortment_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TypeAssortmentUserPage(Iuser.Id));
+            Shell.Current.FlyoutIsPresented = false;
         }
     }
 }

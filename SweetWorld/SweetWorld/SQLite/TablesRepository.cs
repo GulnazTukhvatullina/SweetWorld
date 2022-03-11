@@ -37,6 +37,11 @@ namespace SweetWorld.SQLite
             }
         }
 
+        public int DeleteAssortment(int id)
+        {
+            return database.Delete<Assortment>(id);
+        }
+
         public User GetUser(int id)
         {
             return database.Get<User>(id);

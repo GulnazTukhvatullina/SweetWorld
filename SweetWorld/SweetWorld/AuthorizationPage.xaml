@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.AuthorizationPage">
+             x:Class="SweetWorld.AuthorizationPage" NavigationPage.HasNavigationBar="False" BackgroundImageSource="backgroundCake.png" Visual="Material">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+        <StackLayout VerticalOptions="Center" Spacing="50" Padding="30">
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+                <Label Text="Авторизация"  FontSize="35"
                 HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Spacing="30" >
+                <StackLayout>
+                    <Entry x:Name="loginEntry" Placeholder="Login" Keyboard="Email"/>
+                </StackLayout>
+                <StackLayout>
+                    <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword ="True" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                <Button Text="Войти" HorizontalOptions="FillAndExpand" Clicked="Authorization_Clicked"></Button>
+                <Button Text="Зарегистрироваться" HorizontalOptions="FillAndExpand" Clicked="Register_Clicked"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

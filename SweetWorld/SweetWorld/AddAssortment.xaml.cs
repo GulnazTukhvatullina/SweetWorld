@@ -31,8 +31,9 @@ namespace SweetWorld
                 Mass = pickerMass.Text,
                 PhotoPath = pathName,
                 Price = Convert.ToInt32(price.Text),
-                Type = typeAssortment.SelectedItem.ToString()
-                 
+                Type = typeAssortment.SelectedItem.ToString(),
+                Unit = pickerUnit.SelectedItem.ToString()
+                
             };
             if (!String.IsNullOrEmpty(cat.Name))
             {

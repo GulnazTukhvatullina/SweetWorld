@@ -32,7 +32,7 @@ namespace SweetWorld
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new NavigationPage(new AssortmentPage());
+            MainPage = new NavigationPage(new AuthorizationPage());
         }
 
         protected override void OnStart()

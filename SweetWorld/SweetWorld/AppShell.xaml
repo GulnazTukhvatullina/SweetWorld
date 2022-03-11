@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:SweetWorld.Views" xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+      xmlns:pages="clr-namespace:SweetWorld" xmlns:local="clr-namespace:SweetWorld.Views" xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
        Title="SweetWorld"
-       x:Class="SweetWorld.AppShell">
+       x:Class="SweetWorld.AppShell" BackgroundColor="#DFA5E8">
     <Shell.FlyoutHeader>
-        <StackLayout BackgroundColor="#C9BE82" Padding="10">
-            <abstractions:CircleImage HeightRequest="100" Source="iconMain.jpg" />
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Привет,"/>
-                <Label Text="{Binding Iuser.Name}" />
+        <StackLayout BackgroundColor="#DFA5E8" Padding="10">
+            <abstractions:CircleImage HeightRequest="150" Source="SweetWorld.jpg" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Привет," FontSize="Medium"/>
+                <Label Text="{Binding Iuser.Name}" FontSize="Medium"/>
             </StackLayout>
         </StackLayout>
     </Shell.FlyoutHeader>
-
+    <FlyoutItem Title="Главная страница" Icon="iconShell.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:InfoPage}"/>
+    </FlyoutItem>
+    <MenuItem Text="Ассортименты" IconImageSource="message.png" Clicked="Assortment_Clicked"/>
+    <MenuItem Text="Мои желания" IconImageSource="MyCats.jpg" />
+    <MenuItem Text="Торт на заказ" IconImageSource="becomeCatsitter.jpg" />
+    <MenuItem Text="Контакты" IconImageSource="Catsitter.jpg" />
+    <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />
 </Shell>

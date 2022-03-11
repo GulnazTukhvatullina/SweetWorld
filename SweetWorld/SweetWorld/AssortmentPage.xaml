@@ -11,7 +11,7 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout>
-            <ListView x:Name="assortmentList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}">
+            <ListView x:Name="assortmentList" HasUnevenRows="True" SeparatorColor="Black" ItemSelected="Remove_Clicked" ItemsSource="{Binding}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -28,6 +28,8 @@
                                             <Label Text="{Binding Type}"/>
                                         </StackLayout>
                                     </StackLayout>
+                                    <Button FontFamily="Font" Text="&#xe16c;"></Button>
+                                    
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
