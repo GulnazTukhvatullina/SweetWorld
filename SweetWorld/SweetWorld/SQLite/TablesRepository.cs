@@ -12,11 +12,29 @@ namespace SweetWorld.SQLite
         {
             database = new SQLiteConnection(databasePath);
             database.CreateTable<User>();
+            database.CreateTable<Assortment>();
         }
 
         public IEnumerable<User> GetUsers()
         {
             return database.Table<User>().ToList();
+        }
+
+        public IEnumerable<Assortment> GetAssortments()
+        {
+            return database.Table<Assortment>().ToList();
+        }
+        public int SaveAssortment(Assortment item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
         }
 
         public User GetUser(int id)
