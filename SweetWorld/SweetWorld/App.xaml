@@ -15,9 +15,6 @@
             <Setter Property="BackgroundColor" Value="White"/>
             <Setter Property="BarBackgroundColor" Value="#DFA5E8"/>
         </Style>
-        <Style TargetType="Entry">
-            <Setter Property="BackgroundColor" Value="#DFA5E8" />
-        </Style>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="Black"></Setter>
             <Setter Property="FontFamily" Value="Roboto"></Setter>

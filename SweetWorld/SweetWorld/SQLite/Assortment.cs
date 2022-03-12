@@ -17,5 +17,7 @@ namespace SweetWorld.SQLite
         public int Price { get; set; }
         public string PhotoPath { get; set; }
         public string Type { get; set; }
+
+        public bool IsFavourite { get; set; }
     }
 }

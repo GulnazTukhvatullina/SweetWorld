@@ -1,41 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.AddAssortment" Visual="Material">
+             x:Class="SweetWorld.AddAssortment" Visual="Material" Title="Добавить ассортимент">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" >
-                <StackLayout >
+                <StackLayout Spacing="20">
                     <StackLayout>
-                        <Label Text="Название"  TextColor="black"></Label>
-                        <Entry x:Name="name" BackgroundColor="Wheat"/>
+                        <Entry x:Name="name" Placeholder="Название"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Описание"  TextColor="black"></Label>
-                        <Editor x:Name="description"/>
+                        <Editor x:Name="description" Placeholder="Описание"/>
                     </StackLayout>
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
                                 <Label Text="Масса нетто"  TextColor="black"></Label>
-                                <Entry x:Name="pickerMass" BackgroundColor="Wheat" HeightRequest="50"></Entry>
+                                <Entry x:Name="pickerMass"></Entry>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Единица измерения"  TextColor="black"></Label>
-                                <Picker x:Name="pickerUnit" HeightRequest="50" WidthRequest="60">
+                                <Picker x:Name="pickerUnit" WidthRequest="60" >
                                     <Picker.Items>
                                         <x:String>Шт</x:String>
                                         <x:String>Гр</x:String>
                                     </Picker.Items>
                                 </Picker>
                             </StackLayout>
-                            
                         </StackLayout>
-                        
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Цена"  TextColor="black" ></Label>
-                        <Entry x:Name="price" BackgroundColor="Wheat"/>
+                        <Entry x:Name="price" Placeholder="Цена"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Тип ассортемента"  TextColor="black"></Label>

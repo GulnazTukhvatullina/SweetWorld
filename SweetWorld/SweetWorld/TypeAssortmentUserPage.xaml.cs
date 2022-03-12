@@ -22,7 +22,7 @@ namespace SweetWorld
 
         private void Macaron_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MacaronsPage());
+            Navigation.PushAsync(new MacaronsPage(IdUser));
         }
         private void Cake_Clicked(object sender, EventArgs e)
         {

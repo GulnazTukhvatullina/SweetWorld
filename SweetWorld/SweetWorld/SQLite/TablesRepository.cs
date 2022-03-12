@@ -24,6 +24,11 @@ namespace SweetWorld.SQLite
         {
             return database.Table<Assortment>().ToList();
         }
+
+        public IEnumerable<Assortment> GetAssortmentsType(string type)
+        {
+            return database.Table<Assortment>().Where(a=>a.Type==type).ToList();
+        }
         public int SaveAssortment(Assortment item)
         {
             if (item.Id != 0)

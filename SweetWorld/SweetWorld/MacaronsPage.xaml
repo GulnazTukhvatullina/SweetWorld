@@ -3,10 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.MacaronsPage" Title="Макаруны">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name="makaronsList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Orientation="Vertical" Padding="20">
+                                    <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Name:"/>
+                                            <Label Text="{Binding Name}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Description:"/>
+                                            <Label Text="{Binding Description}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="50" Clicked="like_Clicked"></Button>
+                                        <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="50" ></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
