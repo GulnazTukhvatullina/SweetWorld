@@ -34,5 +34,11 @@ namespace SweetWorld
             await Navigation.PushAsync(new TypeAssortmentUserPage(Iuser.Id));
             Shell.Current.FlyoutIsPresented = false;
         }
+
+        private async void Favourite_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FavouritePage(Iuser.Id));
+            Shell.Current.FlyoutIsPresented = false;
+        }
     }
 }

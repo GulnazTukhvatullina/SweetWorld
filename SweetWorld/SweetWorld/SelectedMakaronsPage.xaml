@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SweetWorld.SelectedMakaronsPage" Title="{Binding Assort.Name}">
+    <ContentPage.Content>
+        <StackLayout  Orientation="Vertical" Padding="20">
+            <Image x:Name="assortmentPhoto" Source="{Binding Assort.PhotoPath}" HeightRequest="200" Aspect="Fill"></Image>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name:"/>
+                    <Label Text="{Binding Assort.Name}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Description:"/>
+                    <Label Text="{Binding Assort.Description}"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="50" Clicked="like_Clicked"></Button>
+                <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="50" x:Name="backet"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -18,14 +18,12 @@ namespace SweetWorld
         {
             InitializeComponent();
             IdUser = idUser;
-            
             this.BindingContext = this;
         }
 
         protected override void OnAppearing()
         {
             makaronsList.ItemsSource = App.Database.GetAssortmentsType("Макаронс");
-            
             base.OnAppearing();
         }
 
@@ -53,7 +51,12 @@ namespace SweetWorld
                 ingredient.IsFavourite = false;
                 App.Database.SaveAssortment(ingredient);
             }
+        }
 
+        private void makaronsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Assortment selectedAssortment = (Assortment)e.SelectedItem;
+            Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser));
         }
     }
 }

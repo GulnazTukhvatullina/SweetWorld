@@ -13,6 +13,7 @@ namespace SweetWorld.SQLite
             database = new SQLiteConnection(databasePath);
             database.CreateTable<User>();
             database.CreateTable<Assortment>();
+            database.CreateTable<Favourite>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -25,9 +26,19 @@ namespace SweetWorld.SQLite
             return database.Table<Assortment>().ToList();
         }
 
+        public Assortment GetAssortmentsId(int id)
+        {
+            return database.Table<Assortment>().Where(a => a.Id == id).FirstOrDefault();
+        }
+
         public IEnumerable<Assortment> GetAssortmentsType(string type)
         {
             return database.Table<Assortment>().Where(a=>a.Type==type).ToList();
+        }
+
+        public IEnumerable<Favourite> GetFavouriteUser(int idUser)
+        {
+            return database.Table<Favourite>().Where(a => a.IdUser == idUser).ToList();
         }
         public int SaveAssortment(Assortment item)
         {
@@ -57,7 +68,30 @@ namespace SweetWorld.SQLite
             return database.Delete<User>(id);
         }
 
+        public int DeleteFavourite(int id)
+        {
+            return database.Delete<Favourite>(id);
+        }
+
+        public int GetFavouriteId(int idUser,int idAssortment)
+        {
+            return database.Table<Favourite>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault().Id;
+        }
+
         public int SaveUser(User item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+
+        public int SaveFavourite(Favourite item)
         {
             if (item.Id != 0)
             {
