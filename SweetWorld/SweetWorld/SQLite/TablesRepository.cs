@@ -53,6 +53,11 @@ namespace SweetWorld.SQLite
             return database.Table<Backet>().Where(a => a.IdUser == idUser).FirstOrDefault();
         }
 
+        public IEnumerable<Backet> GetBacketsUser(int idUser)
+        {
+            return database.Table<Backet>().Where(a => a.IdUser == idUser).ToList();
+        }
+
         public IEnumerable<Assortment> GetAssortmentsType(string type)
         {
             return database.Table<Assortment>().Where(a=>a.Type==type).ToList();
@@ -118,9 +123,19 @@ namespace SweetWorld.SQLite
             return database.Delete<Favourite>(id);
         }
 
+        public int DeleteBacket(int id)
+        {
+            return database.Delete<Backet>(id);
+        }
+
         public int GetFavouriteId(int idUser,int idAssortment)
         {
             return database.Table<Favourite>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault().Id;
+        }
+
+        public Favourite GetIsFavourite(int idUser, int idAssortment)
+        {
+            return database.Table<Favourite>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();
         }
 
         public int SaveUser(User item)

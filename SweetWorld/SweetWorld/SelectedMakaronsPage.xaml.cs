@@ -22,10 +22,26 @@ namespace SweetWorld
             IdUser = idUser;
             if (App.Database.GetBacketUser(IdUser) != null)
             {
+                if (App.Database.GetBacketId(IdUser,Assort.Id) != null)
+                {
+                    btnPlus.IsVisible = true;
+                    btnMinus.IsVisible = true;
+                    countLbl.IsVisible = true;
+                    backet.IsVisible = false;
+                    countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
+                }
+                else
+                {
+                    btnPlus.IsVisible = false;
+                    btnMinus.IsVisible = false;
+                    countLbl.IsVisible = false;
+                    backet.IsVisible = true;
+                    
+                }
                 Count = countAssort;
                 count.Text = Count.ToString();
             }
-            if (!Assort.IsFavourite)
+            if (App.Database.GetIsFavourite(IdUser,Assort.Id) == null)
             {
                 like.BackgroundColor = Color.FromRgb(223, 165, 232);
             }
@@ -75,7 +91,7 @@ namespace SweetWorld
         private void btnBacketCliked(object sender, EventArgs e)
         {
             Backet bac;
-            if ( App.Database.GetBacketUser(IdUser)==null)
+            if ( App.Database.GetBacketUser(IdUser)==null || App.Database.GetBacketId(IdUser, Assort.Id) == null)
             {
                 bac = new Backet()
                 {
@@ -92,17 +108,49 @@ namespace SweetWorld
                 };
                 App.Database.SaveBacket(bac);
             }
-            else
-            {
-                bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
+            btnPlus.IsVisible = true;
+            btnMinus.IsVisible = true;
+            countLbl.IsVisible = true;
+            backet.IsVisible = false;
+            countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
+            Count++;
+            count.Text = Count.ToString();        
+        }
 
-                bac.Count = bac.Count + 1;
-                bac.Summa = Assort.Price * bac.Count;
-                App.Database.SaveBacket(bac);
-            }
+        private void btnPlus_Clicked(object sender, EventArgs e)
+        {
+            Backet bac;
+            bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
+            bac.Count = bac.Count + 1;
+            bac.Summa = Assort.Price * bac.Count;
+            App.Database.SaveBacket(bac);
             Count++;
             count.Text = Count.ToString();
-          
+            countLbl.Text = bac.Count.ToString();
+        }
+
+        private void btnMinus_Clicked(object sender, EventArgs e)
+        {
+            Backet bac;
+            bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
+            if (countLbl.Text == "1")
+            {
+                App.Database.DeleteBacket(bac.Id);
+                btnPlus.IsVisible = false;
+                btnMinus.IsVisible = false;
+                countLbl.IsVisible = false;
+                backet.IsVisible = true;
+            }
+            else
+            {
+                bac.Count = bac.Count - 1;
+                bac.Summa = Assort.Price * bac.Count;
+                App.Database.SaveBacket(bac);
+                countLbl.Text = bac.Count.ToString();
+            }
+            Count--;
+            count.Text = Count.ToString();
+            countLbl.Text = bac.Count.ToString();
         }
     }
 }

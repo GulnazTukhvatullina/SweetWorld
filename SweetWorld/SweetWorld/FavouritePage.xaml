@@ -13,11 +13,9 @@
                                     <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
                                     <StackLayout Orientation="Vertical">
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name:"/>
                                             <Label Text="{Binding Name}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Type:"/>
                                             <Label Text="{Binding Description}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

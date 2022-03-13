@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.SelectedMakaronsPage" Title="{Binding Assort.Name}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="count">
+        <ToolbarItem x:Name="count" >
         </ToolbarItem>
         <ToolbarItem Clicked="backet_Clicked">
             <ToolbarItem.IconImageSource >
                 <FontImageSource FontFamily="Font" Glyph="&#xe8cc;"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-       
-        </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
     <ScrollView>
     <StackLayout  Orientation="Vertical" Padding="20" Spacing="20">
         <Image x:Name="assortmentPhoto" Source="{Binding Assort.PhotoPath}" HeightRequest="200" Aspect="Fill"></Image>
@@ -30,10 +29,13 @@
                 <Label Text="руб" FontSize="Medium"/>
             </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="80" FontSize="Large" Clicked="like_Clicked"></Button>
-            <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="80" FontSize="Large" x:Name="backet" Clicked="btnBacketCliked"></Button>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="80" FontSize="Large" Clicked="like_Clicked"></Button>
+                <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="80"  FontSize="Large" x:Name="backet" Clicked="btnBacketCliked"></Button>
+                <Button Text="-"  WidthRequest="40" FontSize="Large"  x:Name="btnMinus" Clicked="btnMinus_Clicked"  IsVisible="False"></Button>
+                <Label x:Name="countLbl" IsVisible="false" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                <Button Text="+" x:Name="btnPlus" WidthRequest="40" FontSize="Large" Clicked="btnPlus_Clicked" IsVisible="False"></Button>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
     </ScrollView>
 </ContentPage>
