@@ -14,6 +14,7 @@ namespace SweetWorld.SQLite
             database.CreateTable<User>();
             database.CreateTable<Assortment>();
             database.CreateTable<Favourite>();
+            database.CreateTable<Backet>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -26,9 +27,30 @@ namespace SweetWorld.SQLite
             return database.Table<Assortment>().ToList();
         }
 
+        public IEnumerable<Backet> GetBackets()
+        {
+            return database.Table<Backet>().ToList();
+        }
+
+        public Backet GetBacketId(int idUser, int idAssortment)
+        {
+            return database.Table<Backet>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();
+                
+        }
+
+        public Backet GetBacket(int id)
+        {
+            return database.Get<Backet>(id);
+        }
+
         public Assortment GetAssortmentsId(int id)
         {
             return database.Table<Assortment>().Where(a => a.Id == id).FirstOrDefault();
+        }
+
+        public Backet GetBacketUser(int idUser)
+        {
+            return database.Table<Backet>().Where(a => a.IdUser == idUser).FirstOrDefault();
         }
 
         public IEnumerable<Assortment> GetAssortmentsType(string type)
@@ -40,7 +62,30 @@ namespace SweetWorld.SQLite
         {
             return database.Table<Favourite>().Where(a => a.IdUser == idUser).ToList();
         }
+
+        public int GetCountAssortinBacket(int idUser)
+        {
+            int count = 0;
+            foreach (var i in database.Table<Backet>().Where(a => a.IdUser == idUser).ToList())
+            {
+                count += i.Count;
+            }
+            return count;
+        }
         public int SaveAssortment(Assortment item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+
+        public int SaveBacket(Backet item)
         {
             if (item.Id != 0)
             {

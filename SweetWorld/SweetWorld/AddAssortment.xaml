@@ -22,8 +22,8 @@
                                 <Label Text="Единица измерения"  TextColor="black"></Label>
                                 <Picker x:Name="pickerUnit" WidthRequest="60" >
                                     <Picker.Items>
-                                        <x:String>Шт</x:String>
-                                        <x:String>Гр</x:String>
+                                        <x:String>шт</x:String>
+                                        <x:String>гр</x:String>
                                     </Picker.Items>
                                 </Picker>
                             </StackLayout>

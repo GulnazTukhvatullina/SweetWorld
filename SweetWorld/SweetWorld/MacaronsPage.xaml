@@ -2,27 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.MacaronsPage" Title="Макаруны">
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <ListView x:Name="makaronsList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}" ItemSelected="makaronsList_ItemSelected" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout  Orientation="Vertical" Padding="20">
-                                    <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
-                                    <StackLayout Orientation="Vertical">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name:"/>
-                                            <Label Text="{Binding Name}"/>
-                                        </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="count">
+        </ToolbarItem>
+        <ToolbarItem>
+                <ToolbarItem.IconImageSource >
+                    <FontImageSource FontFamily="Font" Glyph="&#xe8cc;"/>
+                </ToolbarItem.IconImageSource>
+            </ToolbarItem>
+         
+        </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <ListView x:Name="makaronsList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}" ItemSelected="makaronsList_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  Orientation="Vertical" Padding="20">
+                                <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="80" FontSize="Large" x:Name="backet" Clicked="btnBacketCliked"></Button>
                                     </StackLayout>
                                 </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

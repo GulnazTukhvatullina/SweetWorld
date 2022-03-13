@@ -2,23 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.SelectedMakaronsPage" Title="{Binding Assort.Name}">
-    <ContentPage.Content>
-        <StackLayout  Orientation="Vertical" Padding="20">
-            <Image x:Name="assortmentPhoto" Source="{Binding Assort.PhotoPath}" HeightRequest="200" Aspect="Fill"></Image>
-            <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Name:"/>
-                    <Label Text="{Binding Assort.Name}"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Description:"/>
-                    <Label Text="{Binding Assort.Description}"/>
-                </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="count">
+        </ToolbarItem>
+        <ToolbarItem Clicked="backet_Clicked">
+            <ToolbarItem.IconImageSource >
+                <FontImageSource FontFamily="Font" Glyph="&#xe8cc;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+       
+        </ContentPage.ToolbarItems>
+    <ScrollView>
+    <StackLayout  Orientation="Vertical" Padding="20" Spacing="20">
+        <Image x:Name="assortmentPhoto" Source="{Binding Assort.PhotoPath}" HeightRequest="200" Aspect="Fill"></Image>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Assort.Name}" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="50" Clicked="like_Clicked"></Button>
-                <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="50" x:Name="backet"></Button>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Assort.Description}" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Assort.Mass}" FontSize="Medium"/>
+                <Label Text="{Binding Assort.Unit}" FontSize="Medium"/>
+                <Label Text="......................................" FontSize="Medium"/>
+                <Label Text="{Binding Assort.Price}" FontSize="Medium"/>
+                <Label Text="руб" FontSize="Medium"/>
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="like" FontFamily="Font" Text="&#xe87e;" WidthRequest="80" FontSize="Large" Clicked="like_Clicked"></Button>
+            <Button FontFamily="Font" Text="&#xe8cc;" WidthRequest="80" FontSize="Large" x:Name="backet" Clicked="btnBacketCliked"></Button>
+        </StackLayout>
+    </StackLayout>
+    </ScrollView>
 </ContentPage>
