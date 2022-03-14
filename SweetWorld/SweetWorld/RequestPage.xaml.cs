@@ -26,15 +26,24 @@ namespace SweetWorld
 
         private void getRequest_Clicked(object sender, EventArgs e)
         {
-           Request req = new Request()
-           {
-               IdUser = User.Id,
-               Date = date.Date,
-               Email = Email.Text,
-               Phone = Convert.ToInt64(phoneNumber.Text),
-               Assortmens = Backet.ToList()
-           };
-           App.Database.SaveRequest(req);
+            foreach (var i in Backet)
+            {
+                Request req = new Request()
+                {
+                    IdUser = User.Id,
+                    Date = date.Date,
+                    Email = Email.Text,
+                    Phone = Convert.ToInt64(phoneNumber.Text),
+                     IdAssortment = i.IdAssortment,
+                     Name = i.Name,
+                     Count = i.Count,
+                     Summa = i.Summa
+
+                };
+                App.Database.SaveRequest(req);
+                App.Database.DeleteBacket(i.Id);
+            }
+           
         }
     }
 }

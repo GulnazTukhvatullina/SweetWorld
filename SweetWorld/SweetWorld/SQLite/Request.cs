@@ -11,12 +11,13 @@ namespace SweetWorld.SQLite
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
         public int IdUser { get; set; }
-        public IList<Backet> Assortmens { get; set; }
+        public int IdAssortment { get; set; }
+        public string Name { get; set; }
         public DateTime Date { get; set; }
         public long Phone { get; set; }
         public string Email { get; set; }
 
-        //public int Count { get; set; }
-        //public int Summa { get; set; }
+        public int Count { get; set; }
+        public int Summa { get; set; }
     }
 }

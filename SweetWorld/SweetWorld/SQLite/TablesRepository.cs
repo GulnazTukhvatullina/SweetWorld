@@ -15,7 +15,7 @@ namespace SweetWorld.SQLite
             database.CreateTable<Assortment>();
             database.CreateTable<Favourite>();
             database.CreateTable<Backet>();
-            //database.CreateTable<Request>();
+            database.CreateTable<Request>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -48,6 +48,11 @@ namespace SweetWorld.SQLite
             }
             return sum;
         }
+
+        //public IEnumerable<Request> GetUserRequestDate()
+        //{
+        //    return database.Query<Request>("");
+        //}
 
         public Backet GetBacket(int id)
         {
