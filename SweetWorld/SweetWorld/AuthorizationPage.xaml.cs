@@ -32,7 +32,7 @@ namespace SweetWorld
 
             else if (loginEntry.Text=="admin" && passwordEntry.Text=="admin")
             {
-                Navigation.PushAsync(new AssortmentPage());
+                Application.Current.MainPage = new AppAdminShell();
             }
 
             else

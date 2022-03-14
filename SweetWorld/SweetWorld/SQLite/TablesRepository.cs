@@ -15,6 +15,7 @@ namespace SweetWorld.SQLite
             database.CreateTable<Assortment>();
             database.CreateTable<Favourite>();
             database.CreateTable<Backet>();
+            //database.CreateTable<Request>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -36,6 +37,16 @@ namespace SweetWorld.SQLite
         {
             return database.Table<Backet>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();
                 
+        }
+
+        public double GetBacketSum(int idUser)
+        {
+            double sum = 0;
+            foreach (var i in database.Table<Backet>().Where(a => a.IdUser == idUser).ToList())
+            {
+                sum += i.Summa;
+            }
+            return sum;
         }
 
         public Backet GetBacket(int id)
@@ -91,6 +102,19 @@ namespace SweetWorld.SQLite
         }
 
         public int SaveBacket(Backet item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+
+        public int SaveRequest(Request item)
         {
             if (item.Id != 0)
             {

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SweetWorld.AppAdminShell"
+             xmlns:pages="clr-namespace:SweetWorld" xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+       BackgroundColor="#DFA5E8">
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="#DFA5E8" Padding="10">
+            <abstractions:CircleImage HeightRequest="150" Source="SweetWorld.jpg" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Привет, Админ" FontSize="Medium"/>
+            </StackLayout>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title="Главная страница" Icon="iconShell.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:InfoPage}"/>
+    </FlyoutItem>
+    <MenuItem Text="Ассортименты" IconImageSource="message.png" Clicked="Assortment_Clicked"/>
+    <MenuItem Text="Сообщения" IconImageSource="message.png" Clicked="messages_Clicked"/>
+    <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />
+</Shell>

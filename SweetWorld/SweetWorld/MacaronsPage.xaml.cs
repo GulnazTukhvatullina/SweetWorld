@@ -56,15 +56,15 @@ namespace SweetWorld
             }
         }
 
-        private void makaronsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void makaronsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Assortment selectedAssortment = (Assortment)e.SelectedItem;
-            Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser,App.Database.GetCountAssortinBacket(IdUser)));
+            await Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser,App.Database.GetCountAssortinBacket(IdUser)));
         }
 
-        private void backet_Clicked(object sender, EventArgs e)
+        private async void backet_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new BacketPage(IdUser));
+            await Navigation.PushAsync(new BacketPage(IdUser));
         }
 
 

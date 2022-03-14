@@ -31,6 +31,8 @@ namespace SweetWorld
 
         private async void Assortment_Clicked(object sender, EventArgs e)
         {
+            var ProjectsPage = new TypeAssortmentUserPage(Iuser.Id);
+            NavigationPage.SetHasBackButton(ProjectsPage, false);
             await Navigation.PushAsync(new TypeAssortmentUserPage(Iuser.Id));
             Shell.Current.FlyoutIsPresented = false;
         }

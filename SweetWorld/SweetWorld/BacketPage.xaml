@@ -10,41 +10,49 @@
                 <FontImageSource FontFamily="Font" Glyph="&#xe8cc;"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <StackLayout>
-            <ListView x:Name="backetsList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout  Orientation="Vertical" Padding="20">
-                                <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
-                                <StackLayout Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand"/>
+        <StackLayout Padding="20">
+            <StackLayout>
+                <ListView x:Name="backetsList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Orientation="Vertical" >
+                                    <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Description}" FontSize="Medium"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Mass}" FontSize="Medium"/>
+                                            <Label Text="{Binding Unit}" FontSize="Medium"/>
+                                            <Label Text="......................................" FontSize="Medium"/>
+                                            <Label Text="{Binding Price}" FontSize="Medium"/>
+                                            <Label Text="руб" FontSize="Medium"/>
+                                        </StackLayout>
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Description}" FontSize="Medium"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Mass}" FontSize="Medium"/>
-                                        <Label Text="{Binding Unit}" FontSize="Medium"/>
-                                        <Label Text="......................................" FontSize="Medium"/>
-                                        <Label Text="{Binding Price}" FontSize="Medium"/>
-                                        <Label Text="руб" FontSize="Medium"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                                        <Button Text="-"  WidthRequest="40" FontSize="Large"  x:Name="btnMinus" Clicked="btnMinus_Clicked"></Button>
+                                        <Label x:Name="countLbl" FontSize="Medium" Text="{Binding Count}" VerticalOptions="CenterAndExpand"/>
+                                        <Button Text="+" x:Name="btnPlus" WidthRequest="40" FontSize="Large" Clicked="btnPlus_Clicked"></Button>
                                     </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                                    <Button Text="-"  WidthRequest="40" FontSize="Large"  x:Name="btnMinus" Clicked="btnMinus_Clicked"></Button>
-                                    <Label x:Name="countLbl" FontSize="Medium" Text="{Binding Count}" VerticalOptions="CenterAndExpand"/>
-                                    <Button Text="+" x:Name="btnPlus" WidthRequest="40" FontSize="Large" Clicked="btnPlus_Clicked"></Button>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Сумма заказа" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                    <Label x:Name="lblSumma" FontSize="Medium" HorizontalTextAlignment="End"/>
+                </StackLayout>
+                <Button Text="Оформить заказ" Clicked="getRequest_Clicked"></Button>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

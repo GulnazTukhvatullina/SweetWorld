@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SweetWorld.RequestPage" Visual="Material">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <StackLayout Spacing="20" >
+                    <StackLayout>
+                        <Entry x:Name="name"  Text="{Binding User.Name}" Placeholder="Имя"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Entry x:Name="Email" Placeholder="Email"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Entry x:Name="phoneNumber" Placeholder="Номер телефона"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Укажите дату, к которой нужно подготовить заказ"></Label>
+                        <DatePicker x:Name="date" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Всего к оплате" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                        <Label x:Name="lblSumma" FontSize="Medium" HorizontalTextAlignment="End"/>
+                    </StackLayout>
+                    <Button Text="Оформить заказ" Clicked="getRequest_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
