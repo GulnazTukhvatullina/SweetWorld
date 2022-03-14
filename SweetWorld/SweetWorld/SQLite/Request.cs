@@ -11,8 +11,9 @@ namespace SweetWorld.SQLite
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
         public int IdUser { get; set; }
+        public string NameUser { get; set; }
         public int IdAssortment { get; set; }
-        public string Name { get; set; }
+        public string NameAssortment { get; set; }
         public DateTime Date { get; set; }
         public long Phone { get; set; }
         public string Email { get; set; }

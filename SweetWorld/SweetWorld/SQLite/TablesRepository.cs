@@ -23,6 +23,12 @@ namespace SweetWorld.SQLite
             return database.Table<User>().ToList();
         }
 
+        public IEnumerable<Request> GetRequests()
+        {
+            return database.Table<Request>().ToList();
+        }
+
+
         public IEnumerable<Assortment> GetAssortments()
         {
             return database.Table<Assortment>().ToList();
@@ -37,6 +43,12 @@ namespace SweetWorld.SQLite
         {
             return database.Table<Backet>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();
                 
+        }
+
+        public string GetUserName(int idUser)
+        {
+            return database.Table<User>().Where(a => a.Id == idUser).FirstOrDefault().Name;
+
         }
 
         public double GetBacketSum(int idUser)

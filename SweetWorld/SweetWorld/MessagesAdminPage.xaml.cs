@@ -15,6 +15,18 @@ namespace SweetWorld
         public MessagesAdminPage()
         {
             InitializeComponent();
+            this.BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            messagesList.ItemsSource = App.Database.GetRequests();
+            base.OnAppearing();
+        }
+
+        private void messagesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

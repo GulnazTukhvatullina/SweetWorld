@@ -88,7 +88,7 @@ namespace SweetWorld
 
         }
 
-        private void btnBacketCliked(object sender, EventArgs e)
+        private async void btnBacketCliked(object sender, EventArgs e)
         {
             Backet bac;
             if ( App.Database.GetBacketUser(IdUser)==null || App.Database.GetBacketId(IdUser, Assort.Id) == null)
@@ -108,16 +108,17 @@ namespace SweetWorld
                 };
                 App.Database.SaveBacket(bac);
             }
-            btnPlus.IsVisible = true;
-            btnMinus.IsVisible = true;
-            countLbl.IsVisible = true;
-            backet.IsVisible = false;
-            countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
+            //btnPlus.IsVisible = true;
+            //btnMinus.IsVisible = true;
+            //countLbl.IsVisible = true;
+            //backet.IsVisible = false;
+            //countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
             Count++;
-            count.Text = Count.ToString();        
+            //count.Text = Count.ToString();        
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
         }
 
-        private void btnPlus_Clicked(object sender, EventArgs e)
+        private async void btnPlus_Clicked(object sender, EventArgs e)
         {
             Backet bac;
             bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
@@ -125,11 +126,12 @@ namespace SweetWorld
             bac.Summa = Assort.Price * bac.Count;
             App.Database.SaveBacket(bac);
             Count++;
-            count.Text = Count.ToString();
-            countLbl.Text = bac.Count.ToString();
+            //count.Text = Count.ToString();
+            //countLbl.Text = bac.Count.ToString();
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
         }
 
-        private void btnMinus_Clicked(object sender, EventArgs e)
+        private async void btnMinus_Clicked(object sender, EventArgs e)
         {
             Backet bac;
             bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
@@ -149,8 +151,9 @@ namespace SweetWorld
                 countLbl.Text = bac.Count.ToString();
             }
             Count--;
-            count.Text = Count.ToString();
-            countLbl.Text = bac.Count.ToString();
+            //count.Text = Count.ToString();
+            //countLbl.Text = bac.Count.ToString();
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
         }
     }
 }

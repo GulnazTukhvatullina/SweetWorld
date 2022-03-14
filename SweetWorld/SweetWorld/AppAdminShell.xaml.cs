@@ -28,9 +28,10 @@ namespace SweetWorld
             Application.Current.MainPage = new AuthorizationPage();
         }
 
-        private void messages_Clicked(object sender, EventArgs e)
+        private async void messages_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new MessagesAdminPage());
+            Shell.Current.FlyoutIsPresented = false;
         }
     }
 }

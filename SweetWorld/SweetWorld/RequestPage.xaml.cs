@@ -24,7 +24,7 @@ namespace SweetWorld
             this.BindingContext = this;
         }
 
-        private void getRequest_Clicked(object sender, EventArgs e)
+        private async void getRequest_Clicked(object sender, EventArgs e)
         {
             foreach (var i in Backet)
             {
@@ -35,7 +35,8 @@ namespace SweetWorld
                     Email = Email.Text,
                     Phone = Convert.ToInt64(phoneNumber.Text),
                      IdAssortment = i.IdAssortment,
-                     Name = i.Name,
+                     NameAssortment = i.Name,
+                     NameUser = App.Database.GetUserName(i.IdUser),
                      Count = i.Count,
                      Summa = i.Summa
 
@@ -43,6 +44,7 @@ namespace SweetWorld
                 App.Database.SaveRequest(req);
                 App.Database.DeleteBacket(i.Id);
             }
+            await Navigation.PushAsync(new TypeAssortmentUserPage(User.Id));
            
         }
     }
