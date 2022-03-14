@@ -18,7 +18,7 @@ namespace SweetWorld
             }
             else
             {
-                ItemsSource = App.Database.GetAssortments();
+                ItemsSource = App.Database.GetAssortmentsType("Макаронс");
             }
         }
 
