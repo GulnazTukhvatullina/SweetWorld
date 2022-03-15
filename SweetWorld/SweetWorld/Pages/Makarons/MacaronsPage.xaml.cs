@@ -30,36 +30,11 @@ namespace SweetWorld
             base.OnAppearing();
         }
 
-        private void like_Clicked(object sender, EventArgs e)
-        {
-            Button button = sender as Button;
-            ViewCell viewCell = button.Parent.Parent.Parent as ViewCell;
-            
-            Assortment ingredient = (Assortment)viewCell.BindingContext;
-            if (ingredient.IsFavourite == false)
-            {
-                ingredient.IsFavourite = true;
-                App.Database.SaveAssortment(ingredient);
-
-                button.BackgroundColor = Color.Wheat;
-                Favourite fav = new Favourite()
-                {
-                    IdAssortment = ingredient.Id,
-                    IdUser = IdUser
-                };
-            }
-            else
-            {
-                button.BackgroundColor = Color.FromRgb(223, 165, 232);
-                ingredient.IsFavourite = false;
-                App.Database.SaveAssortment(ingredient);
-            }
-        }
-
+      
         private async void makaronsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Assortment selectedAssortment = (Assortment)e.SelectedItem;
-            await Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser,App.Database.GetCountAssortinBacket(IdUser)));
+            await Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser));
         }
 
         private async void backet_Clicked(object sender, EventArgs e)

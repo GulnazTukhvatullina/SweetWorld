@@ -28,6 +28,7 @@ namespace SweetWorld
             if (user != null)
             {
                 Application.Current.MainPage = new AppShell(user);
+                App.Current.Properties.Add("IdUser",user.Id);
             }
 
             else if (loginEntry.Text=="admin" && passwordEntry.Text=="admin")

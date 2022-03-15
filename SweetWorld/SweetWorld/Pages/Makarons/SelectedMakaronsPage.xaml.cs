@@ -15,7 +15,7 @@ namespace SweetWorld
         public Assortment Assort { get; set; }
         public int IdUser { get; set; }
         public int Count { get; set; }
-        public SelectedMakaronsPage(Assortment assort,int idUser,int countAssort)
+        public SelectedMakaronsPage(Assortment assort,int idUser)
         {
             InitializeComponent();
             Assort = assort;
@@ -38,7 +38,7 @@ namespace SweetWorld
                     backet.IsVisible = true;
                     
                 }
-                Count = countAssort;
+                Count = App.Database.GetCountAssortinBacket(IdUser);
                 count.Text = Count.ToString();
             }
             if (App.Database.GetIsFavourite(IdUser,Assort.Id) == null)
@@ -115,7 +115,7 @@ namespace SweetWorld
             //countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
             Count++;
             //count.Text = Count.ToString();        
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
         }
 
         private async void btnPlus_Clicked(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace SweetWorld
             Count++;
             //count.Text = Count.ToString();
             //countLbl.Text = bac.Count.ToString();
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
         }
 
         private async void btnMinus_Clicked(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace SweetWorld
             Count--;
             //count.Text = Count.ToString();
             //countLbl.Text = bac.Count.ToString();
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser, Count));
+            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
         }
     }
 }

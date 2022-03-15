@@ -25,9 +25,9 @@ namespace SweetWorld
         protected override async void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
-            var pet = item as Assortment;
-            if (pet is null) return;
-            await App.Current.MainPage.DisplayAlert("Вы выбрали", pet.Name, "ok");
+            var assort = item as Assortment;
+            if (assort is null) return;
+            await App.Current.MainPage.Navigation.PushAsync(new SelectedMakaronsPage(assort, Convert.ToInt32(App.Current.Properties["IdUser"])));
         }
     }
 }
