@@ -30,14 +30,12 @@ namespace SweetWorld
             await Navigation.PushAsync(new AddAssortment());
         }
 
-        private async void Remove_Clicked(object sender, SelectedItemChangedEventArgs e)
+        private async void assortmentList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var assortment = e.SelectedItem as Assortment;
-            if (await DisplayAlert(" ", $"Вы хотите удалить {assortment.Name}?", "Удалить", "Отмена"))
-            {
-                App.Database.DeleteAssortment(assortment.Id);
-                assortmentList.ItemsSource = App.Database.GetAssortments();
-            }
+            Assortment selectedAssort = (Assortment)e.SelectedItem;
+            EdirAssortmentPage editAssortPage = new EdirAssortmentPage(selectedAssort);
+            editAssortPage.BindingContext = selectedAssort;
+            await Navigation.PushAsync(editAssortPage);
         }
     }
 }

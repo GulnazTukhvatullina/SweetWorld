@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.AssortmentPage" Visual="Material">
+             x:Class="SweetWorld.AssortmentPage" Visual="Material" Title="Ассортименты">
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="AddAssortment">
             <ToolbarItem.IconImageSource>
@@ -11,7 +11,7 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout>
-            <ListView x:Name="assortmentList" HasUnevenRows="True" SeparatorColor="Black" ItemSelected="Remove_Clicked" ItemsSource="{Binding}">
+            <ListView x:Name="assortmentList" HasUnevenRows="True" SeparatorColor="Black" ItemSelected="assortmentList_ItemSelected" ItemsSource="{Binding}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -20,16 +20,14 @@
                                     <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
                                     <StackLayout Orientation="Vertical">
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name:"/>
+                                            <Label Text="Название:"/>
                                             <Label Text="{Binding Name}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Type:"/>
+                                            <Label Text="Тип:"/>
                                             <Label Text="{Binding Type}"/>
                                         </StackLayout>
                                     </StackLayout>
-                                    <Button FontFamily="Font" Text="&#xe16c;"></Button>
-                                    
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

@@ -1,26 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.EdirAssortmentPage">
+             x:Class="SweetWorld.EdirAssortmentPage" Visual="Material" Title="Редактирование ">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="RemoveAssortment">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="Font" Glyph="&#xe16c;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" >
                 <StackLayout Spacing="20">
                     <StackLayout>
-                        <Entry x:Name="name" Placeholder="Название"/>
+                        <Entry x:Name="name" Text="{Binding Name}" Placeholder="Название"/>
                     </StackLayout>
                     <StackLayout>
-                        <Editor x:Name="description" Placeholder="Описание"/>
+                        <Editor x:Name="description" Text="{Binding Description}" Placeholder="Описание"/>
                     </StackLayout>
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <StackLayout>
                                 <Label Text="Масса нетто"  TextColor="black"></Label>
-                                <Entry x:Name="pickerMass"></Entry>
+                                <Entry x:Name="pickerMass" Text="{Binding Mass}"></Entry>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Единица измерения"  TextColor="black"></Label>
-                                <Picker x:Name="pickerUnit" WidthRequest="60" >
+                                <Picker x:Name="pickerUnit" WidthRequest="60" SelectedItem="{Binding Unit}">
                                     <Picker.Items>
                                         <x:String>шт</x:String>
                                         <x:String>гр</x:String>
@@ -30,11 +37,11 @@
                         </StackLayout>
                     </StackLayout>
                     <StackLayout>
-                        <Entry x:Name="price" Placeholder="Цена"/>
+                        <Entry x:Name="price" Text="{Binding Price}" Placeholder="Цена"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Тип ассортемента"  TextColor="black"></Label>
-                        <Picker x:Name="typeAssortment">
+                        <Picker x:Name="typeAssortment" SelectedItem="{Binding Type}">
                             <Picker.Items>
                                 <x:String>Торты</x:String>
                                 <x:String>Макаронс</x:String>
@@ -53,7 +60,7 @@
                 </StackLayout>
                 <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
                     <Button Text="Отмена" Clicked="Cancel" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Добавить" Clicked="AddAssort" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Сохранить" Clicked="EditAssort" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

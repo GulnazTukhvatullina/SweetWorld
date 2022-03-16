@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.MessagesAdminPage">
+             x:Class="SweetWorld.MessagesAdminPage" Title="Сообщения">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -13,19 +13,19 @@
                                     <StackLayout  Orientation="Vertical" Padding="20">
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="Name:"/>
+                                                <Label Text="Имя заказчика:"/>
                                                 <Label Text="{Binding NameUser}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="Type:"/>
+                                                <Label Text="Название ассортемента:"/>
                                                 <Label Text="{Binding NameAssortment}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="Type:"/>
+                                                <Label Text="Количество:"/>
                                                 <Label Text="{Binding Count}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="Type:"/>
+                                                <Label Text="Сумма:"/>
                                                 <Label Text="{Binding Summa}"/>
                                             </StackLayout>
                                         </StackLayout>

@@ -161,6 +161,11 @@ namespace SweetWorld.SQLite
             return database.Delete<Backet>(id);
         }
 
+        public int DeleteRequest(int id)
+        {
+            return database.Delete<Request>(id);
+        }
+
         public int GetFavouriteId(int idUser,int idAssortment)
         {
             return database.Table<Favourite>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault().Id;
