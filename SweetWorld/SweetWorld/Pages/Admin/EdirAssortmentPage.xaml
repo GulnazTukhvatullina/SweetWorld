@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SweetWorld.EdirAssortmentPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" >
+                <StackLayout Spacing="20">
+                    <StackLayout>
+                        <Entry x:Name="name" Placeholder="Название"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Editor x:Name="description" Placeholder="Описание"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <Label Text="Масса нетто"  TextColor="black"></Label>
+                                <Entry x:Name="pickerMass"></Entry>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Единица измерения"  TextColor="black"></Label>
+                                <Picker x:Name="pickerUnit" WidthRequest="60" >
+                                    <Picker.Items>
+                                        <x:String>шт</x:String>
+                                        <x:String>гр</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Entry x:Name="price" Placeholder="Цена"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Тип ассортемента"  TextColor="black"></Label>
+                        <Picker x:Name="typeAssortment">
+                            <Picker.Items>
+                                <x:String>Торты</x:String>
+                                <x:String>Макаронс</x:String>
+                                <x:String>Пирожные</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Загрузите фото (необязательно)"  TextColor="black"></Label>
+                        <Image x:Name="asssortmentPhoto" Source="{Binding PhotoPath}" Aspect="Fill" HeightRequest="200"></Image>
+                        <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                            <Button Clicked="GetPhotoAsync" Text="Галерея" HorizontalOptions="FillAndExpand"/>
+                            <Button Clicked="TakePhotoAsync" Text="Камера" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                    <Button Text="Отмена" Clicked="Cancel" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Добавить" Clicked="AddAssort" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

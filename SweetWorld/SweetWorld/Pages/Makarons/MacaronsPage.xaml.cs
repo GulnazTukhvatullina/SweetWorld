@@ -14,13 +14,10 @@ namespace SweetWorld
     public partial class MacaronsPage : ContentPage
     {
         public int IdUser { get; set; }
-        //public int Count { get; set; }
         public MacaronsPage()
         {
             InitializeComponent();
             IdUser = Convert.ToInt32(App.Current.Properties["IdUser"]);
-            //if (App.Database.GetCountAssortinBacket(IdUser) != 0)
-            //    count.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
             this.BindingContext = this;
         }
 
@@ -35,10 +32,5 @@ namespace SweetWorld
             Assortment selectedAssortment = (Assortment)e.SelectedItem;
             await Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser));
         }
-
-        //private async void backet_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new BacketPage(IdUser));
-        //}
     }
 }

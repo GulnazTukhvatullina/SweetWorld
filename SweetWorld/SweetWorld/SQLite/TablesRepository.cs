@@ -28,7 +28,6 @@ namespace SweetWorld.SQLite
             return database.Table<Request>().ToList();
         }
 
-
         public IEnumerable<Assortment> GetAssortments()
         {
             return database.Table<Assortment>().ToList();
@@ -41,14 +40,12 @@ namespace SweetWorld.SQLite
 
         public Backet GetBacketId(int idUser, int idAssortment)
         {
-            return database.Table<Backet>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();
-                
+            return database.Table<Backet>().Where(a => a.IdUser == idUser && a.IdAssortment == idAssortment).FirstOrDefault();              
         }
 
         public string GetUserName(int idUser)
         {
             return database.Table<User>().Where(a => a.Id == idUser).FirstOrDefault().Name;
-
         }
 
         public double GetBacketSum(int idUser)
@@ -60,11 +57,6 @@ namespace SweetWorld.SQLite
             }
             return sum;
         }
-
-        //public IEnumerable<Request> GetUserRequestDate()
-        //{
-        //    return database.Query<Request>("");
-        //}
 
         public Backet GetBacket(int id)
         {
