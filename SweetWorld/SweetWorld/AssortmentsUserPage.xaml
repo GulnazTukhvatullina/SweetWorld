@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:SweetWorld"
+             x:Class="SweetWorld.AssortmentsUserPage" xmlns:local="clr-namespace:SweetWorld" BarBackgroundColor="#DFA5E8">
+    <Shell.SearchHandler>
+        <local:AssortmentsSearchHandler  Placeholder="Enter search term"
+                                      ShowsResults="false"
+                                      DisplayMemberName="Name" >
+            <controls:AssortmentsSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" Orientation="Horizontal">
+                        <Image Source="{Binding PhotoPath}"
+                               Aspect="AspectFill"
+                               HeightRequest="40"
+                               WidthRequest="40" />
+                        <Label Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </DataTemplate>
+            </controls:AssortmentsSearchHandler.ItemTemplate>
+        </local:AssortmentsSearchHandler>
+    </Shell.SearchHandler>
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem  Text="{Binding count}">
+        </ToolbarItem>
+        <ToolbarItem Clicked="backet_Clicked">
+            <ToolbarItem.IconImageSource >
+                <FontImageSource FontFamily="Font" Glyph="&#xe8cc;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    <TabbedPage.Children>
+        <local:MacaronsPage />
+        <local:CakesPage />
+        <local:PirozhCake />
+    </TabbedPage.Children >
+</TabbedPage>

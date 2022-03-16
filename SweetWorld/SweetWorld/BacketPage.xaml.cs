@@ -41,9 +41,7 @@ namespace SweetWorld
             bac.Summa = bac.Price * bac.Count;
             App.Database.SaveBacket(bac);
             Count++;
-            count.Text = Count.ToString();
-            backetsList.ItemsSource = App.Database.GetBacketsUser(IdUser);
-            lblSumma.Text = App.Database.GetBacketSum(IdUser).ToString();
+            UpdateList();
         }
 
         private void btnMinus_Clicked(object sender, EventArgs e)
@@ -64,14 +62,19 @@ namespace SweetWorld
                 App.Database.SaveBacket(bac);
             }
             Count--;
-            count.Text = Count.ToString();
-            backetsList.ItemsSource = App.Database.GetBacketsUser(IdUser);
-            lblSumma.Text = App.Database.GetBacketSum(IdUser).ToString();
+            UpdateList();
         }
 
         private async void getRequest_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RequestPage(IdUser, App.Database.GetBacketsUser(IdUser), lblSumma.Text));
+        }
+
+        public void UpdateList()
+        {
+            count.Text = Count.ToString();
+            backetsList.ItemsSource = App.Database.GetBacketsUser(IdUser);
+            lblSumma.Text = App.Database.GetBacketSum(IdUser).ToString();
         }
     }
 }

@@ -30,7 +30,6 @@ namespace SweetWorld
             await Navigation.PushAsync(new AddAssortment());
         }
 
-
         private async void Remove_Clicked(object sender, SelectedItemChangedEventArgs e)
         {
             var assortment = e.SelectedItem as Assortment;

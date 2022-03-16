@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,11 +31,9 @@ namespace SweetWorld
             Button button = sender as Button;
             ViewCell viewCell = button.Parent.Parent.Parent.Parent as ViewCell;
 
-            Favourite ingredient = (Favourite)viewCell.BindingContext;
-            App.Database.DeleteFavourite(ingredient.Id);
-            Assortment assor = App.Database.GetAssortmentsId(ingredient.IdAssortment);
-            assor.IsFavourite = false;
-            App.Database.SaveAssortment(assor);
+            Favourite fav = (Favourite)viewCell.BindingContext;
+            App.Database.DeleteFavourite(fav.Id);
+
             favouritesList.ItemsSource = App.Database.GetFavouriteUser(IdUser);
         }
     }

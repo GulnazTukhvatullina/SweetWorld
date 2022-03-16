@@ -14,13 +14,13 @@ namespace SweetWorld
     public partial class MacaronsPage : ContentPage
     {
         public int IdUser { get; set; }
-        public int Count { get; set; }
-        public MacaronsPage(int idUser)
+        //public int Count { get; set; }
+        public MacaronsPage()
         {
             InitializeComponent();
-            IdUser = idUser;
-            if (App.Database.GetCountAssortinBacket(IdUser) != 0)
-                count.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
+            IdUser = Convert.ToInt32(App.Current.Properties["IdUser"]);
+            //if (App.Database.GetCountAssortinBacket(IdUser) != 0)
+            //    count.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
             this.BindingContext = this;
         }
 
@@ -29,76 +29,16 @@ namespace SweetWorld
             makaronsList.ItemsSource = App.Database.GetAssortmentsType("Макаронс");
             base.OnAppearing();
         }
-
-      
+   
         private async void makaronsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Assortment selectedAssortment = (Assortment)e.SelectedItem;
             await Navigation.PushAsync(new SelectedMakaronsPage(selectedAssortment,IdUser));
         }
 
-        private async void backet_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new BacketPage(IdUser));
-        }
-
-
-        //private void btnBacketCliked(object sender, EventArgs e)
+        //private async void backet_Clicked(object sender, EventArgs e)
         //{
-        //    Backet bac;
-        //    Button button = sender as Button;
-        //    ViewCell viewCell = button.Parent.Parent.Parent.Parent as ViewCell;
-
-        //    Assortment Assort = (Assortment)viewCell.BindingContext;
-        //    if (App.Database.GetBacketUser(IdUser) == null)
-        //    {
-        //        bac = new Backet()
-        //        {
-        //            IdAssortment = Assort.Id,
-        //            IdUser = IdUser,
-        //            Description = Assort.Description,
-        //            Name = Assort.Name,
-        //            Price = Assort.Price,
-        //            Unit = Assort.Unit,
-        //            Mass = Assort.Mass,
-        //            PhotoPath = Assort.PhotoPath,
-        //            Count = 1,
-        //            Summa = Assort.Price
-        //        };
-        //        App.Database.SaveBacket(bac);
-        //    }
-        //    else
-        //    {
-        //        if(App.Database.GetBacketId(IdUser, Assort.Id)!= null)
-        //        {
-        //            bac = App.Database.GetBacket((App.Database.GetBacketId(IdUser, Assort.Id)).Id);
-
-        //            bac.Count = bac.Count + 1;
-        //            bac.Summa = Assort.Price * bac.Count;
-        //            App.Database.SaveBacket(bac);
-        //        }
-        //        else
-        //        {
-        //            bac = new Backet()
-        //            {
-        //                IdAssortment = Assort.Id,
-        //                IdUser = IdUser,
-        //                Description = Assort.Description,
-        //                Name = Assort.Name,
-        //                Price = Assort.Price,
-        //                Unit = Assort.Unit,
-        //                Mass = Assort.Mass,
-        //                PhotoPath = Assort.PhotoPath,
-        //                Count = 1,
-        //                Summa = Assort.Price
-        //            };
-        //            App.Database.SaveBacket(bac);
-        //        }
-
-        //    }
-
-        //    count.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
-
+        //    await Navigation.PushAsync(new BacketPage(IdUser));
         //}
     }
 }

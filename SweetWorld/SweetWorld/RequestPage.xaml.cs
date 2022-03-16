@@ -34,18 +34,16 @@ namespace SweetWorld
                     Date = date.Date,
                     Email = Email.Text,
                     Phone = Convert.ToInt64(phoneNumber.Text),
-                     IdAssortment = i.IdAssortment,
-                     NameAssortment = i.Name,
-                     NameUser = App.Database.GetUserName(i.IdUser),
-                     Count = i.Count,
-                     Summa = i.Summa
-
+                    IdAssortment = i.IdAssortment,
+                    NameAssortment = i.Name,
+                    NameUser = App.Database.GetUserName(i.IdUser),
+                    Count = i.Count,
+                    Summa = i.Summa
                 };
                 App.Database.SaveRequest(req);
                 App.Database.DeleteBacket(i.Id);
             }
-            await Navigation.PushAsync(new TypeAssortmentUserPage(User.Id));
-           
+            await Navigation.PushAsync(new TypeAssortmentUserPage(User.Id));           
         }
     }
 }

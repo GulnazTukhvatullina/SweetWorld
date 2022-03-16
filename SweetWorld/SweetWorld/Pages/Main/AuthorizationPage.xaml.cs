@@ -28,6 +28,7 @@ namespace SweetWorld
             if (user != null)
             {
                 Application.Current.MainPage = new AppShell(user);
+                App.Current.Properties.Remove("IdUser");
                 App.Current.Properties.Add("IdUser",user.Id);
             }
 

@@ -10,36 +10,22 @@ using Xamarin.Forms.Xaml;
 namespace SweetWorld
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TypeAssortmentUserPage : ContentPage
+    public partial class AssortmentsUserPage : TabbedPage
     {
         public int IdUser { get; set; }
-        public TypeAssortmentUserPage(int idUser)
+        public int count { get; set; }
+        public AssortmentsUserPage()
         {
             InitializeComponent();
-            IdUser = idUser;
+            IdUser = Convert.ToInt32(App.Current.Properties["IdUser"]);
             if (App.Database.GetCountAssortinBacket(IdUser) != 0)
-                count.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
+                count = App.Database.GetCountAssortinBacket(IdUser);
             this.BindingContext = this;
         }
 
         private async void backet_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BacketPage(IdUser));
-        }
-
-        private void Macaron_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new MacaronsPage());
-        }
-
-        private void Cake_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Pirozh_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

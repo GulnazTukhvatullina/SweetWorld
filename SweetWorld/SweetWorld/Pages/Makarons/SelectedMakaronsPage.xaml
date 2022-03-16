@@ -35,6 +35,7 @@
                 <Button Text="-"  WidthRequest="40" FontSize="Large"  x:Name="btnMinus" Clicked="btnMinus_Clicked"  IsVisible="False"></Button>
                 <Label x:Name="countLbl" IsVisible="false" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
                 <Button Text="+" x:Name="btnPlus" WidthRequest="40" FontSize="Large" Clicked="btnPlus_Clicked" IsVisible="False"></Button>
+                <Button Text="OK"  WidthRequest="80" FontSize="Large"  x:Name="btnOk" Clicked="btnOk_Clicked" BackgroundColor="Wheat"></Button>
             </StackLayout>
         </StackLayout>
     </ScrollView>

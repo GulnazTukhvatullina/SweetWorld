@@ -20,9 +20,28 @@ namespace SweetWorld
             InitializeComponent();
             Assort = assort;
             IdUser = idUser;
+            UpdatePage();
+            UpdateFavourite();
+            this.BindingContext = this;
+        }
+
+        public void UpdateFavourite()
+        {
+            if (App.Database.GetIsFavourite(IdUser, Assort.Id) == null)
+            {
+                like.BackgroundColor = Color.FromRgb(223, 165, 232);
+            }
+            else
+            {
+                like.BackgroundColor = Color.Wheat;
+            }
+        }
+
+        public void UpdatePage()
+        {
             if (App.Database.GetBacketUser(IdUser) != null)
             {
-                if (App.Database.GetBacketId(IdUser,Assort.Id) != null)
+                if (App.Database.GetBacketId(IdUser, Assort.Id) != null)
                 {
                     btnPlus.IsVisible = true;
                     btnMinus.IsVisible = true;
@@ -36,37 +55,26 @@ namespace SweetWorld
                     btnMinus.IsVisible = false;
                     countLbl.IsVisible = false;
                     backet.IsVisible = true;
-                    
                 }
-                Count = App.Database.GetCountAssortinBacket(IdUser);
-                count.Text = Count.ToString();
+
+                if (App.Database.GetCountAssortinBacket(IdUser) != 0)
+                {
+                    Count = App.Database.GetCountAssortinBacket(IdUser);
+                    count.Text = Count.ToString();
+                }
             }
-            if (App.Database.GetIsFavourite(IdUser,Assort.Id) == null)
-            {
-                like.BackgroundColor = Color.FromRgb(223, 165, 232);
-            }
-            else
-            {
-                like.BackgroundColor = Color.Wheat;
-            }
-            this.BindingContext = this;
         }
 
         private void like_Clicked(object sender, EventArgs e)
         {
-            if (Assort.IsFavourite)
+            if (App.Database.GetIsFavourite(IdUser, Assort.Id) != null)
             {
                 like.BackgroundColor = Color.FromRgb(223, 165, 232);
-                Assort.IsFavourite = false;
-                App.Database.SaveAssortment(Assort);
                 int idFav = App.Database.GetFavouriteId(IdUser, Assort.Id);
                 App.Database.DeleteFavourite(idFav);
             }
             else
             {
-                Assort.IsFavourite = true;
-                App.Database.SaveAssortment(Assort);
-
                 like.BackgroundColor = Color.Wheat;
                 Favourite fav = new Favourite()
                 {
@@ -83,12 +91,12 @@ namespace SweetWorld
             }
         }
 
-        private void backet_Clicked(object sender, EventArgs e)
+        private async void backet_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new BacketPage(IdUser));
         }
 
-        private async void btnBacketCliked(object sender, EventArgs e)
+        private void btnBacketCliked(object sender, EventArgs e)
         {
             Backet bac;
             if ( App.Database.GetBacketUser(IdUser)==null || App.Database.GetBacketId(IdUser, Assort.Id) == null)
@@ -108,17 +116,11 @@ namespace SweetWorld
                 };
                 App.Database.SaveBacket(bac);
             }
-            //btnPlus.IsVisible = true;
-            //btnMinus.IsVisible = true;
-            //countLbl.IsVisible = true;
-            //backet.IsVisible = false;
-            //countLbl.Text = App.Database.GetBacketId(IdUser, Assort.Id).Count.ToString();
-            Count++;
-            //count.Text = Count.ToString();        
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
+            Count++;       
+            UpdatePage();
         }
 
-        private async void btnPlus_Clicked(object sender, EventArgs e)
+        private void btnPlus_Clicked(object sender, EventArgs e)
         {
             Backet bac;
             bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
@@ -126,12 +128,10 @@ namespace SweetWorld
             bac.Summa = Assort.Price * bac.Count;
             App.Database.SaveBacket(bac);
             Count++;
-            //count.Text = Count.ToString();
-            //countLbl.Text = bac.Count.ToString();
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
+            UpdatePage();
         }
 
-        private async void btnMinus_Clicked(object sender, EventArgs e)
+        private void btnMinus_Clicked(object sender, EventArgs e)
         {
             Backet bac;
             bac = App.Database.GetBacket(App.Database.GetBacketId(IdUser, Assort.Id).Id);
@@ -151,9 +151,12 @@ namespace SweetWorld
                 countLbl.Text = bac.Count.ToString();
             }
             Count--;
-            //count.Text = Count.ToString();
-            //countLbl.Text = bac.Count.ToString();
-            await Navigation.PushAsync(new SelectedMakaronsPage(Assort, IdUser));
+            UpdatePage();
+        }
+
+        private async void btnOk_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AssortmentsUserPage());
         }
     }
 }
