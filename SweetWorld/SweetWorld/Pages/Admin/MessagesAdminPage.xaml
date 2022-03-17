@@ -3,39 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.MessagesAdminPage" Title="Сообщения">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <ListView x:Name="messagesList" HasUnevenRows="True" SeparatorColor="Black" ItemSelected="messagesList_ItemSelected" ItemsSource="{Binding}">
-                    <ListView.ItemTemplate>
+      
+            <AbsoluteLayout>
+                <CarouselView CurrentItemChanged="TheCarousel_CurrentItemChanged"
+            x:Name="TheCarousel"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IndicatorView="indicatorview">
+                    <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <StackLayout  Orientation="Vertical" Padding="20">
-                                        <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="Имя заказчика:"/>
-                                                <Label Text="{Binding NameUser}"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="Название ассортемента:"/>
-                                                <Label Text="{Binding NameAssortment}"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="Количество:"/>
-                                                <Label Text="{Binding Count}"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="Сумма:"/>
-                                                <Label Text="{Binding Summa}"/>
-                                            </StackLayout>
-                                        </StackLayout>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
+                            <AbsoluteLayout>
+                                <StackLayout
+                            AbsoluteLayout.LayoutBounds=
+                            "0.5,0.3,AutoSize,AutoSize"
+                            AbsoluteLayout.LayoutFlags=
+                            "PositionProportional"
+                            HorizontalOptions="Center">
+                                <ListView x:Name="messagesList" HasUnevenRows="True" SeparatorColor="Black" ItemsSource="{Binding .}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <StackLayout  Orientation="Vertical" Padding="20">
+                               
+                                                        <StackLayout Orientation="Vertical">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label Text="Имя заказчика:"/>
+                                                                <Label Text="{Binding NameUser}"/>
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Label Text="Название ассортимента:"/>
+                                                                <Label Text="{Binding NameAssortment}"/>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                            </AbsoluteLayout>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView
+            x:Name="indicatorview"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
+            </AbsoluteLayout>
+      
     </ContentPage.Content>
 </ContentPage>
