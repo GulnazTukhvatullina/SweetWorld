@@ -25,7 +25,17 @@ namespace SweetWorld.SQLite
 
         public IEnumerable<Request> GetRequests()
         {
-            return database.Table<Request>().ToList();
+            return database.Table<Request>().OrderBy(a=>a.Date).ToList();
+        }
+
+        public IEnumerable<Request> GetRequestsToday()
+        {
+            return database.Table<Request>().Where(a=> a.Date == DateTime.Now.Date).ToList();
+        }
+
+        public IEnumerable<Request> GetRequestsWeek()
+        {
+            return database.Table<Request>().OrderBy(a => a.Date).Where(a => a.Date < DateTime.Now.Date).ToList();
         }
 
         public IEnumerable<Assortment> GetAssortments()
