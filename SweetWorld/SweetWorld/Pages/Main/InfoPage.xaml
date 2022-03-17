@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SweetWorld.InfoPage">
+             x:Class="SweetWorld.InfoPage" BackgroundColor="#F3CEF2" Title="О нас">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Image Source="glavnaya.png" HeightRequest="230" WidthRequest="230"/>
+                <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10">
+                    <Label  Text="С 2001 года в самом центре Казани опытные мастера Кондитерского ателье «Sweet World» воплощают в реальность любую фантазию, выпекают и творят с любовью, чтобы порадовать вас сдобной выпечкой, аппетитными десертами и вкуснейшими тортами."
+                            FontSize="16"/>
+                    <Label Text="Даже самый взыскательный сладкоежка найдет здесь десерт на свой вкус: с муссом, глазурью, свежими фруктами и ягодами. В качестве наших кондитерских изделий вы можете не сомневаться!"
+                           FontSize="16"/>
+                    <Label Text="Вдохните аромат шоколада, попробуйте нежное суфле, ощутите, как воздушное пирожное тает во рту… Порадуйте себя и близких маленьким сладким десертом, изысканным тортом или только что приготовленной выпечкой!"
+                           FontSize="16"/>
+                    <Label Text="Продажа кондитерских изделий оптом и в розницу на заказ по ценам кондитерской с учетом ваших пожеланий и предпочтений." FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
