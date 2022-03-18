@@ -16,5 +16,10 @@ namespace SweetWorld
         {
             InitializeComponent();
         }
+
+        private void btnReady_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
