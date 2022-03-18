@@ -41,7 +41,6 @@ namespace SweetWorld
             {
                 DisplayAlert("Ошибка", "Неверные данные", "ОК");
             }
-
         }
     }
 }

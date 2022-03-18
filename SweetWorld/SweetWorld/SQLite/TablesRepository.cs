@@ -16,6 +16,7 @@ namespace SweetWorld.SQLite
             database.CreateTable<Favourite>();
             database.CreateTable<Backet>();
             database.CreateTable<Request>();
+            database.CreateTable<AcceptedNoAcceptedRequest>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -28,6 +29,11 @@ namespace SweetWorld.SQLite
             return database.Table<Request>().OrderBy(a=>a.Date).ToList();
         }
 
+        public IEnumerable<AcceptedNoAcceptedRequest> GetAcceptedNoAcceptedRequestId(int idUser)
+        {
+            return database.Table<AcceptedNoAcceptedRequest>().Where(a=> a.IdUser == idUser).ToList();
+        }
+
         public IEnumerable<Request> GetRequestsToday()
         {
             return database.Table<Request>().Where(a=> a.Date == DateTime.Now.Date).ToList();
@@ -35,7 +41,7 @@ namespace SweetWorld.SQLite
 
         public IEnumerable<Request> GetRequestsWeek()
         {
-            return database.Table<Request>().OrderBy(a => a.Date).Where(a => a.Date < DateTime.Now.Date).ToList();
+            return database.Table<Request>().OrderBy(a => a.Date).Where(a => a.Date > DateTime.Now.Date).ToList();
         }
 
         public IEnumerable<Assortment> GetAssortments()
@@ -134,6 +140,19 @@ namespace SweetWorld.SQLite
         }
 
         public int SaveRequest(Request item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+
+        public int SaveAcceptedRequest(AcceptedNoAcceptedRequest item)
         {
             if (item.Id != 0)
             {

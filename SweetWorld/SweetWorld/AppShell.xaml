@@ -19,6 +19,9 @@
     <MenuItem Text="Ассортименты" IconImageSource="message.png" Clicked="Assortment_Clicked"/>
     <MenuItem Text="Мои желания" IconImageSource="MyCats.jpg" Clicked="Favourite_Clicked"/>
     <MenuItem Text="Торт на заказ" IconImageSource="becomeCatsitter.jpg" />
+    <FlyoutItem Title="Уведомления" Icon="iconShell.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:AlertUserPage}"/>
+    </FlyoutItem>
     <MenuItem Text="Контакты" IconImageSource="Catsitter.jpg" />
     <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />
 </Shell>

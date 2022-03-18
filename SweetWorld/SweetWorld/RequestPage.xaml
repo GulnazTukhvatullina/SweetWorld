@@ -17,7 +17,7 @@
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Укажите дату, к которой нужно подготовить заказ"></Label>
-                        <DatePicker x:Name="date" />
+                        <DatePicker x:Name="date" ></DatePicker>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" >
                         <Label Text="Всего к оплате" FontSize="Medium" HorizontalOptions="StartAndExpand"/>

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -43,7 +42,7 @@ namespace SweetWorld
                 App.Database.SaveRequest(req);
                 App.Database.DeleteBacket(i.Id);
             }
-            await Navigation.PushAsync(new TypeAssortmentUserPage(User.Id));           
+            await Navigation.PushAsync(new AssortmentsUserPage());           
         }
     }
 }

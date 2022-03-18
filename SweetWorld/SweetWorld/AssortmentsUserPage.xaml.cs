@@ -19,7 +19,9 @@ namespace SweetWorld
             InitializeComponent();
             IdUser = Convert.ToInt32(App.Current.Properties["IdUser"]);
             if (App.Database.GetCountAssortinBacket(IdUser) != 0)
+            {
                 count = App.Database.GetCountAssortinBacket(IdUser);
+            }
             this.BindingContext = this;
         }
 
