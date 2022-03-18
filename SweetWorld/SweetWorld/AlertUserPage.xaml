@@ -5,11 +5,27 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <ListView x:Name="readyOrderList" HasUnevenRows="True" SeparatorColor="Black"  ItemsSource="{Binding}" IsVisible="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Orientation="Horizontal"  Padding="0" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Ваш заказ" />
+                                    <Label Text="{Binding NameAssortment}"/>
+                                    <Label Text="на сумму"/>
+                                    <Label Text="готов"/>
+                                    <Label Text="{Binding Summa}"/>
+                        
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <ListView x:Name="alertsList" HasUnevenRows="True" SeparatorColor="Black"  ItemsSource="{Binding}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout  Orientation="Horizontal"  HeightRequest="100"  Padding="0" HorizontalOptions="CenterAndExpand">
+                                <StackLayout  Orientation="Horizontal"  Padding="0" HorizontalOptions="CenterAndExpand">
                                     <Label Text="Ваш заказ" />
                                     <Label Text="{Binding NameAssortment}"/>
                                     <Label Text="на сумму"/>

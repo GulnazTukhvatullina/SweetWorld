@@ -22,7 +22,7 @@
     </Shell.SearchHandler>
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem  Text="{Binding count}">
+        <ToolbarItem  x:Name="countToolBar">
         </ToolbarItem>
         <ToolbarItem Clicked="backet_Clicked">
             <ToolbarItem.IconImageSource >

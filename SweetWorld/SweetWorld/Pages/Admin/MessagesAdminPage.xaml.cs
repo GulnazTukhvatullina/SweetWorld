@@ -57,8 +57,6 @@ namespace SweetWorld
                      Summa = selectedRequest.Summa
                 };
                 App.Database.SaveAcceptedRequest(accept);
-                App.Database.DeleteRequest(selectedRequest.Id);
-                UpdateMessage();
             }
             else
             {
@@ -76,14 +74,10 @@ namespace SweetWorld
                     Summa = selectedRequest.Summa
                 };
                 App.Database.SaveAcceptedRequest(accept);
-                App.Database.DeleteRequest(selectedRequest.Id);
-                UpdateMessage();
             }
+            
+            App.Database.DeleteRequest(selectedRequest.Id);
+            UpdateMessage();
         }
-    }
-
-    public class Title
-    {
-        public string TitleName { get; set; }
     }
 }

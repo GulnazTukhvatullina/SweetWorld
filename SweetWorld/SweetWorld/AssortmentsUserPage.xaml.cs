@@ -20,7 +20,7 @@ namespace SweetWorld
             IdUser = Convert.ToInt32(App.Current.Properties["IdUser"]);
             if (App.Database.GetCountAssortinBacket(IdUser) != 0)
             {
-                count = App.Database.GetCountAssortinBacket(IdUser);
+                countToolBar.Text = App.Database.GetCountAssortinBacket(IdUser).ToString();
             }
             this.BindingContext = this;
         }

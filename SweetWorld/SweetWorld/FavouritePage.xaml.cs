@@ -17,24 +17,38 @@ namespace SweetWorld
         {
             InitializeComponent();
             IdUser = idUser;
+            UpdateList();
             this.BindingContext = this;
-        }
-
-        protected override void OnAppearing()
-        {
-            favouritesList.ItemsSource = App.Database.GetFavouriteUser(IdUser);
-            base.OnAppearing();
         }
 
         private void like_Clicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            ViewCell viewCell = button.Parent.Parent.Parent.Parent as ViewCell;
-
+            ContentView viewCell = button.Parent.Parent.Parent.Parent as ContentView;
+            
             Favourite fav = (Favourite)viewCell.BindingContext;
             App.Database.DeleteFavourite(fav.Id);
 
-            favouritesList.ItemsSource = App.Database.GetFavouriteUser(IdUser);
+            UpdateList();          
+        }
+
+        public void UpdateList()
+        {
+            List<Favourite> list = new List<Favourite>();
+            foreach (var i in App.Database.GetFavouriteUser(IdUser))
+            {
+                list.Add(i);
+
+            };
+            TheCarousel.ItemsSource = list;
+        }
+
+        private void assortmentPhoto_Clicked(object sender, EventArgs e)
+        {
+            ImageButton button = sender as ImageButton;
+            ContentView viewCell = button.Parent.Parent as ContentView;
+            Favourite fav = (Favourite)viewCell.BindingContext;
+            Navigation.PushAsync(new SelectedMakaronsPage(App.Database.GetAssortment(fav.IdAssortment),IdUser));
         }
     }
 }

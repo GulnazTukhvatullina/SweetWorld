@@ -17,6 +17,7 @@ namespace SweetWorld.SQLite
             database.CreateTable<Backet>();
             database.CreateTable<Request>();
             database.CreateTable<AcceptedNoAcceptedRequest>();
+            database.CreateTable<ReadyOrder>();
         }
 
         public IEnumerable<User> GetUsers()
@@ -29,9 +30,25 @@ namespace SweetWorld.SQLite
             return database.Table<Request>().OrderBy(a=>a.Date).ToList();
         }
 
+        public IEnumerable<ReadyOrder> GetReadyOrderId(int idUser)
+        {
+            
+            return database.Table<ReadyOrder>().Where(a => a.IdUser == idUser).ToList();
+        }
+
+        public int GetReadyOrderCount(int idUser)
+        {
+            return database.Table<ReadyOrder>().Where(a => a.IdUser == idUser).ToList().Count;
+        }
+
         public IEnumerable<AcceptedNoAcceptedRequest> GetAcceptedNoAcceptedRequestId(int idUser)
         {
             return database.Table<AcceptedNoAcceptedRequest>().Where(a=> a.IdUser == idUser).ToList();
+        }
+
+        public IEnumerable<AcceptedNoAcceptedRequest> GetRequest()
+        {
+            return database.Table<AcceptedNoAcceptedRequest>().Where(a => a.Event == "приняли").ToList();
         }
 
         public IEnumerable<Request> GetRequestsToday()
@@ -47,6 +64,11 @@ namespace SweetWorld.SQLite
         public IEnumerable<Assortment> GetAssortments()
         {
             return database.Table<Assortment>().ToList();
+        }
+
+        public Assortment GetAssortment(int id)
+        {
+            return database.Table<Assortment>().Where(a=>a.Id==id).FirstOrDefault();
         }
 
         public IEnumerable<Backet> GetBackets()
@@ -104,6 +126,11 @@ namespace SweetWorld.SQLite
             return database.Table<Favourite>().Where(a => a.IdUser == idUser).ToList();
         }
 
+        public Favourite GetFavouriteUserAssortment(int idUser,string assortment)
+        {
+            return database.Table<Favourite>().Where(a => a.IdUser == idUser && a.Name == assortment).FirstOrDefault();
+        }
+
         public int GetCountAssortinBacket(int idUser)
         {
             int count = 0;
@@ -112,6 +139,19 @@ namespace SweetWorld.SQLite
                 count += i.Count;
             }
             return count;
+        }
+
+        public int SaveReadyOrder(ReadyOrder item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
         }
         public int SaveAssortment(Assortment item)
         {
@@ -170,6 +210,11 @@ namespace SweetWorld.SQLite
             return database.Delete<Assortment>(id);
         }
 
+        public int DeleteReadyOrder(int id)
+        {
+            return database.Delete<ReadyOrder>(id);
+        }
+
         public User GetUser(int id)
         {
             return database.Get<User>(id);
@@ -183,6 +228,11 @@ namespace SweetWorld.SQLite
         public int DeleteFavourite(int id)
         {
             return database.Delete<Favourite>(id);
+        }
+
+        public int DeleteAcceptedRequest(int id)
+        {
+            return database.Delete<AcceptedNoAcceptedRequest>(id);
         }
 
         public int DeleteBacket(int id)
