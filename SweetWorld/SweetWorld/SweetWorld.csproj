@@ -22,16 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AlertUserPage.xaml">
+    <EmbeddedResource Update="Pages\User\AlertUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="AssortmentsUserPage.xaml">
+    <EmbeddedResource Update="Pages\User\AssortmentsPages\AssortmentsUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Contacts.xaml">
+    <EmbeddedResource Update="Pages\Main\ContactsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="OrderUserPage.xaml">
+    <EmbeddedResource Update="Pages\User\OrderUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Admin\EdirAssortmentPage.xaml">
@@ -46,22 +46,22 @@
     <EmbeddedResource Update="Pages\Admin\AssortmentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Cakes\CakesPage.xaml">
+    <EmbeddedResource Update="Pages\User\AssortmentsPages\CakesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Main\AuthorizationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="BacketPage.xaml">
+    <EmbeddedResource Update="Pages\User\BacketPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FavouritePage.xaml">
+    <EmbeddedResource Update="Pages\User\FavouritePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Main\InfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Makarons\MacaronsPage.xaml">
+    <EmbeddedResource Update="Pages\User\AssortmentsPages\MacaronsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Admin\MessagesAdminPage.xaml">
@@ -70,24 +70,26 @@
     <EmbeddedResource Update="Pages\Main\RegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="PirozhCake.xaml">
+    <EmbeddedResource Update="Pages\User\AssortmentsPages\PirozhCake.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ReadyOrdersAdminPage.xaml">
+    <EmbeddedResource Update="Pages\Admin\ReadyOrdersAdminPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="RequestPage.xaml">
+    <EmbeddedResource Update="Pages\User\RequestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Makarons\SelectedMakaronsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="TypeAssortmentUserPage.xaml">
+    <EmbeddedResource Update="Pages\User\AssortmentsPages\SelectedAssortmentsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Новая папка\" />
+    <Compile Update="Pages\Main\ContactsPage.xaml.cs">
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\User\AssortmentsPages\SelectedAssortmentsPage.xaml.cs">
+      <DependentUpon>SelectedAssortmentsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
