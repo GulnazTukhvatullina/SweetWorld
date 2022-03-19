@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SweetWorld.SQLite
 {
-    [Table("Assortments")]
+    [Table("Favourites")]
     public class Favourite
     {
         [PrimaryKey, AutoIncrement, Column("_id")]

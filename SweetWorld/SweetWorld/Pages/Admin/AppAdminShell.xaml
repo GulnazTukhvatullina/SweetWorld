@@ -12,12 +12,12 @@
             </StackLayout>
         </StackLayout>
     </Shell.FlyoutHeader>
-    <FlyoutItem Title="Главная страница" Icon="iconShell.png">
+    <FlyoutItem Title="Главная страница" Icon="mainPage.png">
         <ShellContent ContentTemplate="{DataTemplate pages:InfoPage}"/>
     </FlyoutItem>
-    <MenuItem Text="Ассортименты" IconImageSource="message.png" Clicked="Assortment_Clicked"/>
-    <MenuItem Text="Заказы" IconImageSource="message.png" Clicked="messages_Clicked"/>
-    <FlyoutItem Title="Готовые заказы" Icon="iconShell.png">
+    <MenuItem Text="Ассортименты" IconImageSource="mainIcon.png" Clicked="Assortment_Clicked"/>
+    <MenuItem Text="Заказы" IconImageSource="messages.png" Clicked="messages_Clicked"/>
+    <FlyoutItem Title="Готовые заказы" Icon="readyOrders.png">
         <ShellContent ContentTemplate="{DataTemplate pages:ReadyOrdersAdminPage}"/>
     </FlyoutItem>
     <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />

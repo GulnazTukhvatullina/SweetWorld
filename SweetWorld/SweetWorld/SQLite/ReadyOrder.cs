@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SweetWorld.SQLite
 {
-    [Table("AcceptedNoAcceptedRequests")]
+    [Table("ReadyOrders")]
     public class ReadyOrder
     {
         [PrimaryKey, AutoIncrement, Column("_id")]

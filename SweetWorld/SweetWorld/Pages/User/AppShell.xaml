@@ -22,7 +22,7 @@
     <FlyoutItem Title="Уведомления" Icon="iconShell.png">
         <ShellContent ContentTemplate="{DataTemplate pages:AlertUserPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Главная страница" Icon="iconShell.png">
+    <FlyoutItem Title="Контакты" Icon="iconShell.png">
         <ShellContent ContentTemplate="{DataTemplate pages:Contacts}"/>
     </FlyoutItem>
     <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />

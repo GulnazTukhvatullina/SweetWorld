@@ -43,12 +43,12 @@ namespace SweetWorld
             TheCarousel.ItemsSource = list;
         }
 
-        private void assortmentPhoto_Clicked(object sender, EventArgs e)
+        private async void assortmentPhoto_Clicked(object sender, EventArgs e)
         {
             ImageButton button = sender as ImageButton;
             ContentView viewCell = button.Parent.Parent as ContentView;
             Favourite fav = (Favourite)viewCell.BindingContext;
-            Navigation.PushAsync(new SelectedMakaronsPage(App.Database.GetAssortment(fav.IdAssortment),IdUser));
+            await Navigation.PushAsync(new SelectedMakaronsPage(App.Database.GetAssortment(fav.IdAssortment),IdUser));
         }
     }
 }

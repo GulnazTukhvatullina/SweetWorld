@@ -26,7 +26,6 @@ namespace SweetWorld
         protected override void OnAppearing()
         {
             alertsList.ItemsSource = App.Database.GetAcceptedNoAcceptedRequestId(IdUser);
-            //readyOrderList.ItemsSource = App.Database.GetReadyOrderId(IdUser);
             base.OnAppearing();
         }
     }
