@@ -13,18 +13,18 @@
             </StackLayout>
         </StackLayout>
     </Shell.FlyoutHeader>
-    <FlyoutItem Title="Главная страница" Icon="iconShell.png">
+    <FlyoutItem Title="Главная страница" Icon="mainPage.png">
         <ShellContent ContentTemplate="{DataTemplate pages:InfoPage}"/>
     </FlyoutItem>
-    <MenuItem Text="Ассортименты" IconImageSource="message.png" Clicked="Assortment_Clicked"/>
-    <MenuItem Text="Мои желания" IconImageSource="MyCats.jpg" Clicked="Favourite_Clicked"/>
-    <FlyoutItem Title="Мои заказы" Icon="iconShell.png">
+    <MenuItem Text="Ассортименты" IconImageSource="mainIcon.png" Clicked="Assortment_Clicked"/>
+    <MenuItem Text="Мои желания" IconImageSource="wish.jpg" Clicked="Favourite_Clicked"/>
+    <FlyoutItem Title="Мои заказы" Icon="orders.png">
         <ShellContent ContentTemplate="{DataTemplate pages:OrderUserPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Уведомления" Icon="iconShell.png">
+    <FlyoutItem Title="Уведомления" Icon="notice.png">
         <ShellContent ContentTemplate="{DataTemplate pages:AlertUserPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Контакты" Icon="iconShell.png">
+    <FlyoutItem Title="Контакты" Icon="contacts.png">
         <ShellContent ContentTemplate="{DataTemplate pages:Contacts}"/>
     </FlyoutItem>
     <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />
