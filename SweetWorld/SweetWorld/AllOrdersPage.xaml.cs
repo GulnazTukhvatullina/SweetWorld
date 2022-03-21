@@ -16,5 +16,11 @@ namespace SweetWorld
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            allOrdersList.ItemsSource = App.Database.GetReadyOrders();
+            base.OnAppearing();
+        }
     }
 }

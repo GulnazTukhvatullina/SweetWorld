@@ -4,9 +4,36 @@
              x:Class="SweetWorld.CurrentOrdersPage" Title="Текущие заказы">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="currentOrdersList" HasUnevenRows="True" SeparatorColor="Black"  ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.View>
+                                <StackLayout  Orientation="Vertical" Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                            <Label Text="Заказ №:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Id}" FontAttributes="Bold"/>
+                                        <Button Text="{Binding Event}" HorizontalOptions="EndAndExpand" HeightRequest="35"></Button>
+                                    </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Название ассортимента:"/>
+                                            <Label Text="{Binding NameAssortment}"/>
+                                        </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Сумма:"/>
+                                        <Label Text="{Binding Summa}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Дата:"/>
+                                        <DatePicker Date="{Binding Date}"/>
+                                    </StackLayout>
+                                    
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

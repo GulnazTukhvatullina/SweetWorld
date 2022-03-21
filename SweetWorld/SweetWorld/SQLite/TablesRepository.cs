@@ -35,6 +35,11 @@ namespace SweetWorld.SQLite
             return database.Table<ReadyOrder>().Where(a => a.IdUser == idUser).OrderByDescending(a=> a.Date).ToList();
         }
 
+        public IEnumerable<ReadyOrder> GetReadyOrders()
+        {
+            return database.Table<ReadyOrder>().ToList();
+        }
+
         public int GetReadyOrderCount(int idUser)
         {
             return database.Table<ReadyOrder>().Where(a => a.IdUser == idUser).ToList().Count;
@@ -43,6 +48,11 @@ namespace SweetWorld.SQLite
         public IEnumerable<AcceptedNoAcceptedRequest> GetAcceptedNoAcceptedRequestId(int idUser)
         {
             return database.Table<AcceptedNoAcceptedRequest>().Where(a=> a.IdUser == idUser).OrderByDescending(a => a.Date).ToList();
+        }
+
+        public IEnumerable<AcceptedNoAcceptedRequest> GetAcceptedRequests()
+        {
+            return database.Table<AcceptedNoAcceptedRequest>().OrderByDescending(a => a.Date).ToList();
         }
 
         public IEnumerable<AcceptedNoAcceptedRequest> GetRequest()

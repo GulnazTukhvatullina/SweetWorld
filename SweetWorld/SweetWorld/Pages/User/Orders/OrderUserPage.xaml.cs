@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace SweetWorld
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderUserPage : ContentPage
+    public partial class OrderUserPage : TabbedPage
     {
         public OrderUserPage()
         {
