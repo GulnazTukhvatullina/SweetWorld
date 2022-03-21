@@ -4,11 +4,70 @@
              x:Class="SweetWorld.Contacts" BackgroundColor="#F3CEF2">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20">
-                <Image Source="geo.png"/>
-                <StackLayout Orientation="Horizontal" BackgroundColor="#DFA5E8">
-                    <Label Text="Адрес
-                                г. Казань, ул. Московская, д.3" FontSize="16" />
+            <StackLayout>
+                <Label Text="Кондитерская Sweet World на ул. Московская" BackgroundColor="#DFA5E8" FontSize="24" Padding="5"/>
+                <StackLayout Spacing="10">
+                    <StackLayout Spacing="1">
+                        <ScrollView>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="geo.png"/>
+                                <StackLayout Orientation="Vertical" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="Адрес" FontSize="18"/>
+                                    <Label Text="г. Казань, ул. Московская, д.3" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <ScrollView>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="metro.png"/>
+                                <StackLayout Orientation="Vertical" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="Станция метро" FontSize="18"/>
+                                    <Label Text="Кремлевская" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <ScrollView>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="call.png"/>
+                                <StackLayout Orientation="Horizontal" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="+7 (843) 278 91 43" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                    <Button Text="Позвонить" BackgroundColor="#DFA5E8" Margin="70, 1, 70, 20"/>
+                </StackLayout>
+                <Label Text="Кондитерская Sweet World на ул. Декабристов" BackgroundColor="#DFA5E8" FontSize="24" Padding="5"/>
+                <StackLayout Spacing="10">
+                    <StackLayout Spacing="1">
+                        <ScrollView>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="geo.png"/>
+                                <StackLayout Orientation="Vertical" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="Адрес" FontSize="18"/>
+                                    <Label Text="г. Казань, ул. Декабристов, д.133" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <ScrollView>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="metro.png"/>
+                                <StackLayout Orientation="Vertical" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="Станция метро" FontSize="18"/>
+                                    <Label Text="Яшьлек" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                        <ScrollView>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="call.png"/>
+                                <StackLayout Orientation="Horizontal" BackgroundColor="#DFA5E8" Padding="5">
+                                    <Label Text="+7 (843) 164 78 51" FontSize="16"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                    <Button Text="Позвонить" BackgroundColor="#DFA5E8" Margin="70, 1, 70, 20"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
