@@ -4,8 +4,8 @@
              x:Class="SweetWorld.Contacts" BackgroundColor="#F3CEF2" Title="Контакты">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Label Text="Кондитерская Sweet World на ул. Московская" BackgroundColor="#DFA5E8" FontSize="24" Padding="5"/>
+            <StackLayout Padding="10">
+                <Label Text="Кондитерская Sweet World на ул. Московская" BackgroundColor="#DFA5E8" FontSize="20" Padding="5"/>
                 <StackLayout Spacing="10">
                     <StackLayout Spacing="1">
                         <ScrollView>
@@ -37,7 +37,7 @@
                     </StackLayout>
                     <Button Text="Позвонить" BackgroundColor="#DFA5E8" Margin="70, 1, 70, 20"/>
                 </StackLayout>
-                <Label Text="Кондитерская Sweet World на ул. Декабристов" BackgroundColor="#DFA5E8" FontSize="24" Padding="5"/>
+                <Label Text="Кондитерская Sweet World на ул. Декабристов" BackgroundColor="#DFA5E8" FontSize="20" Padding="5"/>
                 <StackLayout Spacing="10">
                     <StackLayout Spacing="1">
                         <ScrollView>
