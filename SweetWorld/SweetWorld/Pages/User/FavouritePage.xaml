@@ -13,7 +13,7 @@
                     <DataTemplate>
                         <ContentView>
                             <StackLayout  Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="500" WidthRequest="300">
-                                <ImageButton x:Name="assortmentPhoto" Source="{Binding PhotoPath}" Aspect="Fill" Clicked="assortmentPhoto_Clicked"></ImageButton>
+                                <ImageButton x:Name="assortmentPhoto" Source="{Binding PhotoPath}" Aspect="Fill" Clicked="assortmentPhoto_Clicked" HeightRequest="300"></ImageButton>
                                 <StackLayout Orientation="Vertical">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding Name}" x:Name="lblName"/>
