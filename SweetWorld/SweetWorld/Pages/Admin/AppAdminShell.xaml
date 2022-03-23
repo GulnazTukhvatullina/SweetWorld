@@ -16,8 +16,8 @@
         <ShellContent ContentTemplate="{DataTemplate pages:InfoPage}"/>
     </FlyoutItem>
     <MenuItem Text="Ассортименты" IconImageSource="mainIcon.png" Clicked="Assortment_Clicked"/>
-    <MenuItem Text="Заказы" IconImageSource="messages.png" Clicked="messages_Clicked"/>
-    <FlyoutItem Title="Готовые заказы" Icon="readyOrders.png">
+    <MenuItem Text="Заказы" IconImageSource="orders.png" Clicked="messages_Clicked"/>
+    <FlyoutItem Title="Готовые заказы" Icon="ready.png">
         <ShellContent ContentTemplate="{DataTemplate pages:ReadyOrdersAdminPage}"/>
     </FlyoutItem>
     <MenuItem Text="Выйти" Clicked="exit_Clicked"  IconImageSource="exitIcon.png" />
