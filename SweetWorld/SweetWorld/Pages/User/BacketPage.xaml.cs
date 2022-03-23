@@ -19,12 +19,11 @@ namespace SweetWorld
             InitializeComponent();
             IdUser = idUser;
             Count = App.Database.GetCountAssortinBacket(IdUser);
-            count.Text = Count.ToString();
+            if (App.Database.GetCountAssortinBacket(IdUser) != 0)
+            {
+                count.Text = Count.ToString();
+            }
             lblSumma.Text = App.Database.GetBacketSum(IdUser).ToString();
-            //App.Database.DeleteAcceptedRequest(8);
-            //App.Database.DeleteAcceptedRequest(10);
-            //App.Database.DeleteAcceptedRequest(11);
-            //App.Database.DeleteAcceptedRequest(12);
             this.BindingContext = this;
         }
 

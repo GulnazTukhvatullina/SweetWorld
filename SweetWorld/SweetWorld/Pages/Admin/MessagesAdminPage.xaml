@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SweetWorld.MessagesAdminPage" Title="Заявки" Visual="Material">
     <ContentPage.Content>
-
         <AbsoluteLayout>
             <Label Text="{Binding TitleName}" x:Name="TitleName"></Label>
             <CarouselView 

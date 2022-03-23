@@ -74,8 +74,7 @@ namespace SweetWorld
                     Summa = selectedRequest.Summa
                 };
                 App.Database.SaveAcceptedRequest(accept);
-            }
-            
+            }        
             App.Database.DeleteRequest(selectedRequest.Id);
             UpdateMessage();
         }

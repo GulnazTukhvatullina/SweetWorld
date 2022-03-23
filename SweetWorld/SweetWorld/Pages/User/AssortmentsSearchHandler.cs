@@ -1,6 +1,7 @@
 ﻿using SweetWorld.SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -18,7 +19,7 @@ namespace SweetWorld
             }
             else
             {
-                ItemsSource = App.Database.GetAssortments();
+                ItemsSource = App.Database.GetAssortments().Where(assort => assort.Name.ToLower().Contains(newValue.ToLower()));
             }
         }
 

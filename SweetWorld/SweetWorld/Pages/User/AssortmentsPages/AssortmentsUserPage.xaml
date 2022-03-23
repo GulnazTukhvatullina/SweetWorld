@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:SweetWorld"
              x:Class="SweetWorld.AssortmentsUserPage" xmlns:local="clr-namespace:SweetWorld" BarBackgroundColor="#DFA5E8">
     <Shell.SearchHandler>
-        <local:AssortmentsSearchHandler  Placeholder="Enter search term"
-                                      ShowsResults="false"
-                                      DisplayMemberName="Name" >
+        <local:AssortmentsSearchHandler  Placeholder="Enter search term" ShowsResults="false" DisplayMemberName="Name">
             <controls:AssortmentsSearchHandler.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" Orientation="Horizontal">
@@ -20,7 +18,6 @@
             </controls:AssortmentsSearchHandler.ItemTemplate>
         </local:AssortmentsSearchHandler>
     </Shell.SearchHandler>
-
     <TabbedPage.ToolbarItems>
         <ToolbarItem  x:Name="countToolBar">
         </ToolbarItem>

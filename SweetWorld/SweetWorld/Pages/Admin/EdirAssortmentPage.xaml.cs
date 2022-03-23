@@ -20,6 +20,7 @@ namespace SweetWorld
         {
             InitializeComponent();
             pathName = assor.PhotoPath;
+            this.BindingContext = this;
         }
 
         private void Cancel(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace SweetWorld
             {
                 await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
-            UpdateList();
+            asssortmentPhoto.Source = pathName;
         }
 
         private async void TakePhotoAsync(object sender, EventArgs e)
@@ -87,14 +88,7 @@ namespace SweetWorld
             {
                 await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
-            UpdateList();
-        }
-
-        private void UpdateList()
-        {
             asssortmentPhoto.Source = pathName;
-            this.BindingContext = this;
         }
-
     }
 }

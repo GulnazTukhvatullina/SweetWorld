@@ -35,6 +35,7 @@ namespace SweetWorld
                 Unit = pickerUnit.SelectedItem.ToString()
                 
             };
+
             if (!String.IsNullOrEmpty(cat.Name))
             {
                 App.Database.SaveAssortment(cat);

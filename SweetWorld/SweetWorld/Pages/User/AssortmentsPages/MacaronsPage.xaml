@@ -11,7 +11,7 @@
                             <ViewCell >
                                 <StackLayout  Orientation="Vertical" Margin="10" Padding="0">
                                     <StackLayout>
-                                        <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="200" Aspect="Fill" ></Image>
+                                        <Image x:Name="assortmentPhoto" Source="{Binding PhotoPath}" HeightRequest="240" Aspect="Fill" ></Image>
                                     </StackLayout>
                                     <StackLayout Orientation="Vertical">
                                         <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand"/>

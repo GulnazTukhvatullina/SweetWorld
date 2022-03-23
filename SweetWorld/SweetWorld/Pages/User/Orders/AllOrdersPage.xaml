@@ -20,6 +20,10 @@
                                             <Label Text="{Binding NameAssortment}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
+                                            <Label Text="Сумма:"/>
+                                            <Label Text="{Binding Summa}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
                                             <Label Text="Дата:"/>
                                             <DatePicker Date="{Binding Date}"/>
                                         </StackLayout>
